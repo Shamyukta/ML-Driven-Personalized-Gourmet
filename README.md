@@ -1,43 +1,17 @@
 # ML-driven-Personalized-Gourmet
 
-This project is aimed at easing out the user experience of a customer who seems to be indecisive about what they want and also help business owners ameliorate their businesses.
-
-<p align="center"><img src = "https://github.com/Rahul-Vasan/ML-driven-Personalized-Gourmet/blob/main/img/Restaurants-in-Brewster-MA.png" width = 700><p>
-  
-  ## Table of Contents
-
-- [Problem Statement](#problemstatement)
-- [Understanding the  Data](#understandingthedata)
-- [Solution Architecture](#architecture)
-- [Data Exploration](#EDA)
-- [Features that constitute the solution](#features)
-- [Algorithms Used](#algo)
-- [Results](#results)
-- [Evaluation metrics](#evaluation)
-- [Challenges Faced](#challenges)
-- [Future Scope](#futurescope)
-- [References](#references)
-- [Contact Me](#contact)  
-  
+This project aims to enhance the customer experience for indecisive users while simultaneously assisting business owners in improving their operations.
 
 ***
 <a id='problemstatement'></a>
 ## Problem Statement
-In a world where food delivery is done within minutes, finding the right restaurant based on a user’s taste takes a lot more time with the plethora of options. In addition, every restaurant is judged by the customer reviews and ratings. The intention of this project is to build a recommendation system for restaurants in Philadelphia, based on the past experiences and reviews of a particular user. **The hybrid recommendation engine which is a combination of matrix factorization and cosine similarity will be used to solve this problem. This project also aims at providing the restaurant owners, the insights into what is working well and what can be improved which could help the restaurant retain the good services and improvise on the flawed ones**. Also a technique called sentiment analysis is used to provide insights about the social sentiment pertaining to the restaurant.
+In an era of rapid food delivery, discovering the perfect restaurant tailored to an individual's preferences becomes a time-consuming task due to the overwhelming number of choices. Furthermore, customer reviews and ratings heavily influence restaurant choices. The objective of this endeavor is to construct a restaurant recommendation system for Philadelphia, drawing from a user's historical experiences and reviews. This project employs a hybrid recommendation engine, combining matrix factorization and cosine similarity to address this challenge. Additionally, it aspires to furnish restaurant proprietors with valuable insights into their strengths and areas for improvement, facilitating the enhancement of service quality and customer retention. To achieve this, sentiment analysis is employed to provide an overview of the social sentiment surrounding each restaurant.
 
 <a id='understandingthedata'></a>  
-## Understanding the data
-I have pulled the datasets using the Yelp API endpoint https://api.yelp.com/v3/businesses/search. 
-The datasets that I designed for this project are:
-  
-1) Restaurant information dataset
-  
-2) Restaurant reviews dataset
-  
-3) Users dataset
+## Dataset
+I retrieved datasets from the Yelp API endpoint at https://api.yelp.com/v3/businesses/search. 
+Following are the JSON schemas outlining the structure of each dataset I've compiled:
 
-Below are the Schemas of the JSON structure of each of the dataset that I have prepared:
-  
 **Restaurant Information Dataset**
   
 <p align="center"><img src = "https://github.com/Rahul-Vasan/ML-driven-Personalized-Gourmet/blob/main/img/restaurant_new.png" width = 700><p>  
@@ -55,22 +29,18 @@ Below are the Schemas of the JSON structure of each of the dataset that I have p
   
 <p align="center"><img src = "https://github.com/Rahul-Vasan/ML-driven-Personalized-Gourmet/blob/main/img/architecture.png" width = 700><p>  
 
-1) Data Retrieval - Python API programming from the Yelp API endpoint.
-2) Business logic - Pyspark SQL, Pyspark MLlib, Pandas,Pymongo.
-3) Storage mechanisms - MongoDB Atlas Cloud, HDFS.
-4) Data visualization - Matplotlib, Seaborn, Recmetrics, Folium, Wordcloud.
-5) Hyper Parameter Tuning - Pyspark Grid Search feature.
+1) Acquiring Data - Utilized Python for programming to fetch data efficiently from the Yelp API endpoint.
+
+2) Processing and Logic - Employed a combination of Pyspark SQL, Pyspark MLlib, Pandas, and Pymongo for robust business logic and data manipulation.
+
+3) Data Storage - Utilized MongoDB Atlas Cloud and HDFS for effective data storage and management.
+
+4) Visualizing Insights - Leveraged a suite of visualization tools including Matplotlib, Seaborn, Recmetrics, Folium, and Wordcloud to create meaningful and visually appealing representations of the data.
+
+5) Fine-Tuning Parameters - Applied the Pyspark Grid Search feature for meticulous hyperparameter tuning to enhance model performance.
   
 <a id='EDA'></a>
 ## Data Exploration
-  
-Let’s start with some basic yet useful data exploration and see what business value they can add. We will start of with,
-1) The distribution of ratings in a particular city
-2) The long tail plot
-3) Most active users of the system
-4) The restaurants with most customer traffic
-5) The most valuable patrons of a particular restaurant
-6) Categories of dishes to avoid in the city
   
 **Distribution of Ratings in a particular city**
 
@@ -181,8 +151,9 @@ I have taken separate efforts to explain my experience with these algorithms in 
    
  <p align="center"><img src = "https://github.com/Rahul-Vasan/ML-driven-Personalized-Gourmet/blob/main/img/prf_wr_thresholds.png" width = 700><p>
    
-I was able to achieve a precision of about 83%. For a recommendation system precision is a lot more important than recall. This is because the precision tries to reduce the false positivity and recall tries to reduce the false negativity. False positives are basically restaurants that the user did not like but the model predicted that he would. And so these restaurants will be displayed as recommendations to the user. However, false negatives ( restaurants that the user liked but the model missed it) are never shown to the users and there is no way that the users would even encounter false negatives in a recommendation system. That is why we emphasize more on precision over recall.
-The above plot basically shows the values of precision and recall for different classification threshold values ranging from 0 to 5 just as the scale of the ratings. Usually the point where the F0.5 score is maximum is chosen as the threshold and it can be seen that the F0.5 score( green line) is maximum for a threshold value 3.5.
+I achieved an approximately 83% precision, which holds greater significance in recommendation systems compared to recall. Precision focuses on minimizing false positives, which are restaurants the user wouldn't prefer but were predicted as suitable recommendations. On the other hand, recall aims to minimize false negatives, restaurants the user liked but the model missed. In recommendation systems, users never encounter false negatives, emphasizing the importance of precision. 
+
+The plot illustrates precision and recall values across various classification threshold values, ranging from 0 to 5, mirroring the rating scale. Typically, the threshold that maximizes the F0.5 score (indicated by the green line) is chosen. In this case, the F0.5 score reaches its peak at a threshold of 3.5.
    
 <p align="center"><img src = "https://github.com/Rahul-Vasan/ML-driven-Personalized-Gourmet/blob/main/img/ROC%20curve.png" width = 700><p>
   
@@ -239,17 +210,7 @@ There is some scope for improvements in the project as listed:
 8) https://link.springer.com/article/10.1007/s11257-021-09302-x
   
 <a id='contact'></a>
-## Contact Me
 
-  Please feel free to contact me for anything in pertinance to the project. 
-  
-| Contact Method |  |
-| --- | --- |
-| Personal Email | rahulvasan30@gmail.com |
-| School Email |   rs7671@nyu.edu |
-| LinkedIn | https://www.linkedin.com/in/rahul-vasan/ |  
-  
-  
    
    
    
